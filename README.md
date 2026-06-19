@@ -2,11 +2,9 @@
 
 An interactive machine learning dashboard that forecasts monthly sales, compares forecasting models, and turns predictions into actionable business recommendations.
 
-**Live demo:** _Add your Streamlit Cloud URL here after deployment_
+**Live demo:** https://ai-sales-forecasting-dashboard-e6wevpy2wpq34degkbjuzo.streamlit.app/
 
 ![Dashboard preview](assets/dashboard-preview.png)
-
-> Add a screenshot to `assets/dashboard-preview.png` after running the app locally.
 
 ---
 
