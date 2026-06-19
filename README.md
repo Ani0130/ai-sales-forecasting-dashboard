@@ -1,153 +1,90 @@
 # AI Sales Forecasting Dashboard
 
-An interactive machine learning dashboard that forecasts monthly sales, compares forecasting models, and turns predictions into actionable business recommendations.
+An AI-powered sales analytics dashboard that analyzes historical sales trends, compares multiple forecasting models, and generates data-driven predictions to support business decision-making.
 
-**Live demo:** https://ai-sales-forecasting-dashboard-e6wevpy2wpq34degkbjuzo.streamlit.app/
+**Live Demo:** https://ai-sales-forecasting-dashboard-e6wevpy2wpq34degkbjuzo.streamlit.app/
 
-![Dashboard preview](assets/dashboard-preview.png)
-
----
-
-## Why this project
-
-This project demonstrates end-to-end data science skills employers look for:
-
-- **Data engineering:** CSV ingestion, validation, and preprocessing
-- **Machine learning:** Multiple time-series models with hold-out validation
-- **Analytics:** KPI tracking, trend analysis, and model comparison
-- **Product thinking:** Interactive UI, exports, and business recommendations
-- **MLOps basics:** Model persistence with joblib
+![Dashboard Preview](assets/dashboard-preview.png)
 
 ---
 
-## Features
+## Overview
 
-| Feature | Description |
-|--------|-------------|
-| Multi-model forecasting | Linear Regression, ARIMA, Exponential Smoothing |
-| Model validation | Hold-out testing with MAE, RMSE, and MAPE |
-| Auto model selection | Picks the best-performing model on recent data |
-| Interactive dashboard | Streamlit tabs for overview, data, forecasts, and performance |
-| CSV upload | Analyze your own sales history |
-| Export & persistence | Download forecasts and save trained models |
+The dashboard provides an end-to-end sales forecasting pipeline, from data preprocessing and trend analysis to machine learning-based prediction and business insight generation. It allows users to upload custom sales datasets, evaluate different forecasting approaches, and visualize future sales projections through an interactive interface.
 
 ---
 
-## Tech stack
+## Key Features
 
-- **Python** — core language
-- **Streamlit** — web dashboard
-- **Pandas & NumPy** — data processing
-- **Scikit-learn** — linear regression baseline
-- **Statsmodels** — ARIMA and exponential smoothing
-- **Plotly** — interactive charts
-- **Joblib** — model serialization
+- Multi-model forecasting using Linear Regression, ARIMA, and Exponential Smoothing
+- Automatic model selection based on validation performance
+- Forecast evaluation using MAE, RMSE, and MAPE metrics
+- Interactive sales trend, forecast, and performance visualizations
+- Historical data exploration with KPI analysis
+- CSV upload support for custom sales datasets
+- Downloadable forecast reports
+- Automated business insights and recommendations
 
 ---
 
-## Project structure
+## Technology Stack
+
+- Python
+- Streamlit
+- Pandas & NumPy
+- Scikit-learn
+- Statsmodels
+- Plotly
+- Joblib
+
+---
+
+## Model Evaluation Approach
+
+The system uses hold-out validation to evaluate forecasting accuracy. The most recent months of historical data are reserved as a test set, and each forecasting model is evaluated using MAE, RMSE, and MAPE metrics. The model with the best performance is automatically selected for future sales prediction.
+
+---
+
+## Project Structure
 
 ```text
 ai-sales-forecasting-dashboard/
-├── app.py                  # Streamlit dashboard entry point
-├── requirements.txt        # Python dependencies
+│
+├── app.py                     # Streamlit application
+├── requirements.txt           # Project dependencies
+│
 ├── data/
-│   ├── sales_data.csv      # Sample dataset (24 months)
-│   └── upload_template.csv # CSV format example
+│   ├── sales_data.csv         # Sample dataset
+│   └── upload_template.csv    # CSV format reference
+│
 ├── src/
-│   ├── data_loader.py      # Load and validate data
-│   ├── forecasting.py        # Forecasting models and evaluation
-│   ├── visualization.py    # Plotly chart builders
-│   └── utils.py            # KPIs, insights, recommendations
-├── models/                 # Saved model artifacts (generated at runtime)
-└── .streamlit/config.toml  # App theme and settings
+│   ├── data_loader.py         # Data validation and preprocessing
+│   ├── forecasting.py         # Forecasting models and evaluation
+│   ├── visualization.py       # Interactive charts
+│   └── utils.py               # KPIs and business insights
+│
+├── models/                    # Saved model artifacts
+├── assets/                    # Dashboard images
+└── .streamlit/                # Streamlit configuration
 ```
 
 ---
 
-## Run locally
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/Ani0130/ai-sales-forecasting-dashboard.git
-cd ai-sales-forecasting-dashboard
-```
-
-### 2. Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 3. Start the dashboard
-
-```bash
-streamlit run app.py
-```
-
-Open `http://localhost:8501` in your browser.
-
----
-
-## Upload your own data
-
-CSV must include these columns:
-
-| Column | Type | Example |
-|--------|------|---------|
-| `Date` | Monthly date | `2024-01-01` |
-| `Sales` | Numeric sales value | `1200` |
-
-Use at least **6 months** of data (12+ recommended for seasonal models). See `data/upload_template.csv` for the expected format.
-
----
-
-## How models are evaluated
-
-1. The most recent N months are held out as a test set (default: 3).
-2. Each model trains on earlier data and predicts the hold-out period.
-3. Models are ranked by **MAPE** (Mean Absolute Percentage Error).
-4. The lowest-MAPE model is used for the forward forecast (unless overridden manually).
-
-This avoids misleading in-sample accuracy and reflects real forecasting performance more honestly.
-
----
-
-## Deploy to Streamlit Community Cloud
-
-1. Push this repo to GitHub.
-2. Go to [share.streamlit.io](https://share.streamlit.io).
-3. Connect your GitHub account and select this repository.
-4. Set **Main file path** to `app.py`.
-5. Click **Deploy**.
-
-After deployment, paste your live URL at the top of this README and add a screenshot to `assets/dashboard-preview.png`.
-
----
-
-## Resume bullet examples
-
-- Built an ML-powered sales forecasting dashboard with Streamlit, comparing 3 time-series models using hold-out MAPE validation.
-- Implemented data validation, automated model selection, and exportable forecasts for business planning workflows.
-- Deployed an interactive analytics app to Streamlit Cloud with Plotly visualizations and persisted model artifacts.
-
----
-
-## Future improvements
+## Future Enhancements
 
 - Forecast confidence intervals
-- Product/region-level forecasting
-- Database and API integrations
-- Scheduled model retraining
+- Product and region-level forecasting
+- Integration with databases and external APIs
+- Automated periodic model retraining
 
 ---
 
 ## Author
 
-**Aniket Jha**  
-GitHub: [@Ani0130](https://github.com/Ani0130)  
-LinkedIn: [Aniket Jha](https://www.linkedin.com/in/aniket-jha-1051b4252/)
+**Aniket Jha**
+
+GitHub: https://github.com/Ani0130  
+LinkedIn: https://www.linkedin.com/in/aniket-jha-1051b4252/
 
 ---
 
